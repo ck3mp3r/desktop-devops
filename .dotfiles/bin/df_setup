@@ -7,7 +7,15 @@ df_init () {
   sudo -H python3 -m pip install --upgrade pip ansible
 }
 
+df_ansible () {
+  cwd=`pwd`
+  cd ~/.dotfiles/ansible
+  ansible-playbook playbook.yaml -i localhost, -c local -e ansible_python_interpreter=auto_silent
+  cd $cwd
+}
+
 while [[ "$#" -gt 0 ]]; do case $1 in
   -i|--init) df_init;;
+  -a|--ansible) df_ansible;;
   *) echo "Unknown parameter passed: $1"; exit 1;;
 esac; shift; done

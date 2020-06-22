@@ -1,0 +1,4 @@
+---
+- name: Update Homebrew inventory.
+  homebrew:
+    update_homebrew: yes
