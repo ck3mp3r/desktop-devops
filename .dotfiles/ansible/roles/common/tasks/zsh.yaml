@@ -1,0 +1,34 @@
+---
+- name: Create ~/.zshrc.d directory
+  file: 
+    path: ~/.zshrc.d
+    state: directory
+
+- name: Ensure all files in ~/.zshrc.d get sourced
+  lineinfile:
+    path: ~/.zshrc
+    line: source ~/.zshrc.d/*.zsh
+
+- name: Check for Oh My ZSH Installation
+  stat:
+    path: ~/.oh-my-zsh
+  register: omz_installed
+
+- name: Install Oh My ZSH...
+  git:
+    repo: 'git://github.com/robbyrussell/oh-my-zsh.git'
+    dest: ~/.oh-my-zsh
+  when: omz_installed.stat.exists == False
+
+- name: Install zsh autosuggestions and zplug
+  homebrew:
+    package:
+      - zsh-autosuggestions
+      - zplug
+    state: latest
+
+- name: Ensure ZSH config for Oh My ZSH and zplug is loaded
+  copy:
+    src: files/zshrc.d/oh-my.zsh
+    dest: ~/.zshrc.d/oh-my.zsh
+

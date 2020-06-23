@@ -2,3 +2,5 @@
 - name: Update Homebrew inventory.
   homebrew:
     update_homebrew: yes
+
+- include_tasks: zsh.yaml
