@@ -4,3 +4,4 @@
     update_homebrew: yes
 
 - include_tasks: zsh.yaml
+- include_tasks: tmux.yaml

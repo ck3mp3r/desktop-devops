@@ -1,0 +1,12 @@
+---
+- name: Install tmuxinator
+  gem:
+    name: tmuxinator
+    state: latest
+
+- name: Install tmux
+  homebrew:
+    package:
+      - tmux
+      - tmuxinator-completion
+    state: latest
