@@ -1,0 +1,38 @@
+---
+- name: Install neovim
+  homebrew:
+    package:
+      - neovim
+    state: latest
+
+- name: Tap cask-fonts
+  homebrew_tap:
+    name: homebrew/cask-fonts
+    state: present
+
+- name: Install nerd fonts
+  homebrew_cask:
+    name: font-hack-nerd-font
+    state: upgraded
+
+- name: Check if SpaceVim is installed.
+  stat:
+    path: ~/.SpaceVim
+  register: spacevim_installed
+
+- name: Load SpaceVim installer data
+  uri: 
+    url: https://spacevim.org/install.sh
+    return_content: yes
+  register: spaceviminstall
+  when: spacevim_installed.stat.exists == False
+
+- name: Install SpaceVim...
+  command:
+    argv:
+      - "bash"
+      - "-c"
+      - "{{ spaceviminstall.content }}"
+  when: spacevim_installed.stat.exists == False
+
+- include_tasks: config.yaml

@@ -3,3 +3,4 @@
     - debug: msg="You are running {{ ansible_distribution }}"
   roles:
     - common
+    - spacevim

@@ -1,0 +1,16 @@
+---
+- name: Create ~/.SpaceVim.d/autoload
+  file:
+    path: ~/.SpaceVim.d/autoload
+    state: directory
+    mode: '0755'
+
+- name: Copy init.toml in place
+  copy:
+    src: SpaceVim.d/init.toml
+    dest: ~/.SpaceVim.d/init.toml
+
+- name: Copy myspacevim.vim in place
+  copy:
+    src: SpaceVim.d/autoload/myspacevim.vim
+    dest: ~/.SpaceVim.d/autoload/myspacevim.vim
