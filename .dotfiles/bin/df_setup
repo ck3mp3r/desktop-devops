@@ -5,6 +5,7 @@ df_init () {
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   fi
   sudo -H python3 -m pip install --upgrade pip ansible
+  sudo -H python -m ensurepip
 }
 
 df_ansible () {

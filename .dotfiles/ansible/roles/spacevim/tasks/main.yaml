@@ -35,4 +35,5 @@
       - "{{ spaceviminstall.content }}"
   when: spacevim_installed.stat.exists == False
 
+- include_tasks: lang.yaml
 - include_tasks: config.yaml

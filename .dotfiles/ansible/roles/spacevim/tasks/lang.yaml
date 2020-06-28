@@ -1,0 +1,32 @@
+---
+- name: install nodejs and yarn
+  homebrew:
+    package:
+      - nodejs
+      - yarn
+      - yarn-completion
+    state: upgraded
+
+- name: install nodejs neovim support
+  yarn:
+    name: neovim
+    state: latest
+    global: yes
+
+- name: install python neovim support
+  pip:
+    name: neovim
+    state: latest
+    extra_args: --user
+
+- name: install python 2 neovim support
+  pip:
+    executable: pip2
+    name: neovim
+    state: latest
+    extra_args: --user
+
+- name: install ruby neovim support
+  gem:
+    name: neovim
+    state: latest
