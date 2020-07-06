@@ -14,3 +14,8 @@
   copy:
     src: SpaceVim.d/autoload/myspacevim.vim
     dest: ~/.SpaceVim.d/autoload/myspacevim.vim
+
+- name: Copy editor.zsh in place
+  copy:
+    src: zshrc.d/editor.zsh
+    dest: ~/.zshrc.d/editor.zsh
