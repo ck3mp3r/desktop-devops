@@ -7,7 +7,7 @@
 - name: Ensure all files in ~/.zshrc.d get sourced
   lineinfile:
     path: ~/.zshrc
-    line: for n in `ls ~/.zshrc.d/`; do source $n; done;
+    line: for n in `ls ~/.zshrc.d/`; do source ~/.zshrc.d/$n; done;
 
 - name: Check for Oh My ZSH Installation
   stat:
