@@ -9,4 +9,26 @@
     package:
       - tmux
       - tmuxinator-completion
+      - reattach-to-user-namespace
     state: latest
+
+- name: Check if tmuxinator plugin manager is installed.
+  stat:
+    path: ~/.tmux/plugins/tpm
+  register: tpm_installed
+
+- name: Create tmux plugin directory
+  file:
+    state: directory
+    path: ~/.tmux/plugins
+
+- name: Install tmuxinator plugin manager...
+  git:
+    repo: 'https://github.com/tmux-plugins/tpm'
+    dest: ~/.tmux/plugins/tpm
+  when: tpm_installed.stat.exists == False
+
+- name: Copy tmux.conf in place
+  copy:
+    src: tmux.conf
+    dest: ~/.tmux.conf
