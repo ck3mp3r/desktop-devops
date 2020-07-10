@@ -33,14 +33,20 @@
 
 # Enable autocomplete layer
 [[layers]]
-name = 'autocomplete'
-auto_completion_return_key_behavior = "complete"
-auto_completion_tab_key_behavior = "cycle"
+  name = 'autocomplete'
+  auto_completion_return_key_behavior = "complete"
+  auto_completion_tab_key_behavior = "cycle"
 
 [[layers]]
-name = 'shell'
-default_position = 'top'
-default_height = 30
+  name = 'shell'
+  default_position = 'top'
+  default_height = 30
+
+[[layers]]
+  name = 'checkers#syntax-checking'
+
+[[layers]]
+  name = 'lang#toml'
 
 [[layers]]
   name = "git"
@@ -49,16 +55,15 @@ default_height = 30
   name = "github"
 
 [[layers]]
-name = 'lang#html'
+  name = 'lang#html'
 
 [[layers]]
-name = 'lang#javascript'
-auto_fix = true
-enable_flow_syntax = true
+  name = 'lang#javascript'
+  auto_fix = true
+  enable_flow_syntax = true
 
 [[layers]]
-name = 'lang#json'
+  name = 'lang#json'
 
 [[layers]]
-name = 'lang#markdown'
-
+  name = 'lang#markdown'
