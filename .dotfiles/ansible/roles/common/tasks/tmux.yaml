@@ -32,3 +32,8 @@
   copy:
     src: tmux.conf
     dest: ~/.tmux.conf
+
+- name: Add alias for tmuxinator in ~/.zshrc
+  lineinfile:
+    path: ~/.zshrc
+    line: alias mux=tmuxinator
